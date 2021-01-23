@@ -1,7 +1,8 @@
 from movie import Movie
 
 
-vingador =  Movie("Vingador","Polo","Sala 4")
-vingador.
-print(vingador.theater)
+vingador =  Movie("Vingador: a era de ultron","Polo","Sala 4")
+vingador.theater = "polo"
+vingador.title = "peste"
+print(vingador.title)
 
