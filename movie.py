@@ -48,6 +48,16 @@ class Movie:
         print('-'*80)
         print("FILMES CADASTRADOS".center(75))
         print('-'*80)
-        print(f'{"Titulo":<3}{"Complexo".center(65)}{"Sala":>5}')
+        print(f'{"Titulo":<15}{"Complexo":^45}{"Sala"}')
         print('-'*80)
-        return f'{self.title}{self.theater.rjust(20," ").ljust(20, " ")}{self.room:>45}'
+
+        title_splited = ''
+        if len(self._title) > 19:
+
+            title_splited = self.title[:19]
+            title_splited += "..."
+
+        return f'{title_splited}{self.theater:^30}{self.room:>10}'
+
+    def layout(self):
+        pass
