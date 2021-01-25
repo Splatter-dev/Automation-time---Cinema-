@@ -49,13 +49,12 @@ class Movie:
 
         title_splited = ''
         len_title_rest = 22 - len(self._title)
-        # title_splited = self.title[:19 ] + '...' if len(self._title) > 19 else self.title
+        # title_splited = self.title[:19 ] + '...' if len(self._title) > 19 else self.title + " " * len_title_rest
         if len(self._title) > 19:
             title_splited = self.title[:19] + "..."
         else:
-            title_splited = (self.title + " ") * len_title_rest
+            title_splited = self.title + " " * len_title_rest
 
-        print(len(title_splited))
         return f'{title_splited}{self.theater:^30}{self.room:>10}'
 
     def layout(self):
