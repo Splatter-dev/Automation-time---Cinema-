@@ -1,4 +1,4 @@
-from movie import Movie
+from modules.movie import Movie
 
 
 vingador = Movie("vingadores: A era de ultron", "polo", 4)
