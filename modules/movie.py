@@ -45,33 +45,26 @@ class Movie:
     def room(self, room):
         self._room = room
 
-
     @property
     def time_offset(self):
-        return self._time_offset
-
+        return str(self._time_offset)
 
     @time_offset.setter
     def time_offset(self, time_offset):
         self._time_offset = time_offset
-
 
     def __str__(self):
         self.layout()
 
         title_splited = ''
         len_title_rest = 22 - len(self._title)
-        # title_splited = self.title[:19 ] + '...' if len(self._title) > 19 else self.title + " " * len_title_rest
-        if len(self._title) > 19:
-            title_splited = self.title[:19] + "..."
-        else:
-            title_splited = self.title + " " * len_title_rest
+        title_splited = self.title[:19] + '...' if len(self._title) > 19 else self.title + " " * len_title_rest
 
-        return f'{title_splited}{self.theater:^30}{self.room:>10}{self.time_offset}'
+        return f'{title_splited}{self.theater:^30}{self.room:>10}{self.time_offset:>18}'
 
     def layout(self):
-        print('-'*80)
+        print('-'*85)
         print("FILMES CADASTRADOS".center(75))
-        print('-'*80)
-        print(f'{"Titulo":<15}{"Complexo":^45}{"Sala"}')
-        print('-'*80)
+        print('-'*85)
+        print(f'{"Titulo":<15}{"Complexo":^45}{"Sala"}{"Time offset":>20}')
+        print('-'*85)
