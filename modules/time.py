@@ -1,5 +1,5 @@
-class TimeOffset(hour, minutes, seconds):
-    def __init__(self):
+class TimeOffset:
+    def __init__(self,hour, minutes, seconds):
         hour = self._hour
         minutes = self._minutes
         seconds = self._seconds
@@ -27,3 +27,4 @@ class TimeOffset(hour, minutes, seconds):
     @seconds.setter
     def seconds(self, seconds):
         self._seconds = seconds
+
