@@ -1,16 +1,22 @@
-class TimeOffset:
-    def __init__(self,hour, minutes, seconds):
-        hour = self._hour
-        minutes = self._minutes
-        seconds = self._seconds
+class Hour:
+    def __init__(self, hour):
+        self._hour = str(hour)
 
     @property
     def hour(self):
-        return self._hour
+        return self._hour.strip()
 
     @hour.setter
     def hour(self, hour):
         self._hour = hour
+
+    # def __str__(self):
+    #    return f'{self._hour}'
+
+
+class Minutes:
+    def __init__(self, minutes):
+        self._minutes = str(minutes)
 
     @property
     def minutes(self):
@@ -18,7 +24,12 @@ class TimeOffset:
 
     @minutes.setter
     def minutes(self, minutes):
-        self._minutes = minutes
+        self._minutes = minutes.strip()
+
+
+class Seconds:
+    def __init__(self, seconds):
+        self._seconds = str(seconds)
 
     @property
     def seconds(self):
@@ -26,5 +37,4 @@ class TimeOffset:
 
     @seconds.setter
     def seconds(self, seconds):
-        self._seconds = seconds
-
+        self._seconds = seconds.strip()
