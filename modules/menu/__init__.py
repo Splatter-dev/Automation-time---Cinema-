@@ -5,7 +5,7 @@ from time import sleep
 def main_menu():
     sleep(.5)
     print("-"*60)
-    print("MENU PRINCIPAL".center(60))
+    print("CINEMA - TIME OFFSET".center(60))
     print("-"*60)
     print(f"{colour.yellow('1')} - {colour.blue('Cadastrar novo filme')}")
     print(f"{colour.yellow('2')} - {colour.blue('Listar ultimos filmes acadastrados')}")
