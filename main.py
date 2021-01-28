@@ -1,5 +1,3 @@
-from modules.movie import Movie
-from modules.time import Hour
 from modules.menu import main_menu 
 from modules import menu_validation
 from modules import menu_options
