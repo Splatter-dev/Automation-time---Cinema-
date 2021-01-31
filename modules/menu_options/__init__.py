@@ -1,4 +1,5 @@
 import modules.colours as colour
+import modules.menu_validation as validation
 from time import sleep
 
 
@@ -11,7 +12,8 @@ def options(option_selected):
 
 def option_one():
     print("\n")
-    title = str(input(colour.purple("Digite o nome do filme: "))).strip().lower()
+    title = validation.name_input(title="")
+    # print(title)
     theater = str(input(colour.purple("Digite o nome do cinema: "))).strip().title()
     room = str(input(colour.purple("Qual foi a sala onde o filme foi testado: "))).strip().lower()
 
