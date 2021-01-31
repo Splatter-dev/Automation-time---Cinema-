@@ -15,7 +15,7 @@ def option_selected(option=""):
             attempts = 0
 
         try:
-            option_input = int(input(colour.purple("Digite uma opção: ")))
+            option_input = int(input(colour.blue("Digite uma opção: ")))
         except(ValueError, TypeError):
             print(colour.red("Digite um valor correto!"))
             attempts += 1

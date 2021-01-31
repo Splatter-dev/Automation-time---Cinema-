@@ -1,5 +1,5 @@
 class Movie:
-    def __init__(self, title, theater, room, time_offset):
+    def __init__(self, title, theater, room, time_offset=''):
         self._title = title
         self._theater = theater
         self._room = room
