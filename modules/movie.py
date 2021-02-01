@@ -5,6 +5,13 @@ class Movie:
         self._room = room
         self._time_offset = time_offset
 
+
+    # def teste(self):
+    #     teste = str(input("Teste: "))
+    #     self._title = teste
+    #     return teste
+
+
     @property
     def title(self):
         title = self.title_name()

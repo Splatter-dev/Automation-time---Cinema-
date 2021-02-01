@@ -4,7 +4,7 @@ from modules import help_funcs
 from time import sleep
 
 
-def option_selected(option=""):
+def chose_a_option(option=""):
 
     attempts = 0
 
@@ -57,4 +57,13 @@ def name_input(title):
             attempts += 1
             continue
 
+        if len(title) == 1:
+            option = str(input(colour.purple("Você tem certeza que o nome é esse? [S/N] "))).strip().lower()
+
+            if option == "s":
+                return title
+                break
+            else:
+                continue
+   
         return title

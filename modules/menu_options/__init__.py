@@ -13,7 +13,7 @@ def options(option_selected):
 def option_one():
     print("\n")
     title = validation.name_input(title="")
-    # print(title)
+    print(title)
     theater = str(input(colour.purple("Digite o nome do cinema: "))).strip().title()
     room = str(input(colour.purple("Qual foi a sala onde o filme foi testado: "))).strip().lower()
 

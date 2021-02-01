@@ -2,7 +2,7 @@ from modules.menu import main_menu
 from modules import menu_validation
 from modules import menu_options
 from datetime import timedelta
-
+from modules import movie
 
 
 # begin = timedelta(seconds=15,minutes=12,hours=1)
@@ -12,13 +12,16 @@ from datetime import timedelta
 # time_offset = begin - end
 # print(time_offset)
 
+# teste = movie.Movie("","polo",4,12)
+# print(teste)
+
 
 menu_option = 5
 
 
 while menu_option != 4:
     main_menu()
-    option_selected = menu_validation.option_selected()
+    option_selected = menu_validation.chose_a_option()
     menu_options.options(option_selected)
     if option_selected is 4:
         menu_option = option_selected 
