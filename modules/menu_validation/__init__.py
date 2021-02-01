@@ -67,3 +67,16 @@ def name_input(title):
                 continue
    
         return title
+
+
+def theater_option(theater_name=""):
+    theaters = ("Polo", "Járagua")
+
+    while True:
+        try:
+            print(colour.purple("Escolha um dos complexos abaixo:"))
+            print((colour.blue("1 - Polo\n2 - Jarágua")))
+            chosen_option = int(input(colour.purple("\nDigite o número da opção:")))
+        except(ValueError, TypeError):
+            print(colour.red("Escolha uma das opções disponiveis.!"))
+          

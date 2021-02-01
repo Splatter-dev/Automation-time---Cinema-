@@ -3,6 +3,7 @@ from modules import menu_validation
 from modules import menu_options
 from datetime import timedelta
 from modules import movie
+from modules import help_funcs
 
 
 # begin = timedelta(seconds=15,minutes=12,hours=1)
@@ -20,6 +21,7 @@ menu_option = 5
 
 
 while menu_option != 4:
+    help_funcs.clear_terminal()
     main_menu()
     option_selected = menu_validation.chose_a_option()
     menu_options.options(option_selected)
