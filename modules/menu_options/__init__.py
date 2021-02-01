@@ -17,6 +17,7 @@ def option_one():
     title = validation.name_input(title="")
     print(title)
     theater = validation.theater_option()
+    print(theater)
     room = str(input(colour.purple("Qual foi a sala onde o filme foi testado: "))).strip().lower()
 
 def option_two():

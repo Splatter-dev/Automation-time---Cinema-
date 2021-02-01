@@ -73,10 +73,17 @@ def theater_option(theater_name=""):
     theaters = ("Polo", "Járagua")
 
     while True:
+
         try:
             print(colour.purple("Escolha um dos complexos abaixo:"))
             print((colour.blue("1 - Polo\n2 - Jarágua")))
             chosen_option = int(input(colour.purple("\nDigite o número da opção:")))
         except(ValueError, TypeError):
-            print(colour.red("Escolha uma das opções disponiveis.!"))
-          
+            print(colour.red("Escolha uma das opções disponiveis usando o numero 1 ou 2!"))
+            continue
+        
+        if chosen_option not in (1,2):
+            print(colour.red("Opção indisponível. Escolha a opção 1 ou 2."))
+            continue
+
+        return theaters[chosen_option - 1]
