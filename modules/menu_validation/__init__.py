@@ -70,7 +70,7 @@ def name_input(title):
 
 
 def theater_option(theater_name=""):
-    theaters = ("Polo", "Járagua")
+    theaters = ("Polo", "Jarágua")
 
     while True:
 
@@ -78,12 +78,39 @@ def theater_option(theater_name=""):
             print(colour.purple("Escolha um dos complexos abaixo:"))
             print((colour.blue("1 - Polo\n2 - Jarágua")))
             chosen_option = int(input(colour.purple("\nDigite o número da opção:")))
+
         except(ValueError, TypeError):
             print(colour.red("Escolha uma das opções disponiveis usando o numero 1 ou 2!"))
             continue
         
+        except(KeyboardInterrupt):
+            print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
+            exit()
+
         if chosen_option not in (1,2):
             print(colour.red("Opção indisponível. Escolha a opção 1 ou 2."))
             continue
 
+        print(theaters[chosen_option - 1])
         return theaters[chosen_option - 1]
+
+
+def room_options(theater):
+    theater_rooms = (1,2,3,4) if theater.lower() == "jarágua" else (1,2,3,4,5)
+    while True:
+        try:
+            room = int(input(colour.blue("Digite o número da sala em que o filme foi testado: ")))
+            
+        except(ValueError, TypeError):
+            print(colour.red("Digite o número da sala!"))
+            continue
+
+        except(KeyboardInterrupt):
+            print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
+            exit()
+
+        if room not in theater_rooms:
+            print(colour.red(f"Temos apenas {theater_rooms[-1]} salas nesse cinema!"))
+            continue
+
+        return room

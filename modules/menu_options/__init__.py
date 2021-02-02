@@ -12,13 +12,15 @@ def options(option_selected):
 
 
 def option_one():
-    menu.split_menu()
-    print("\n")
-    title = validation.name_input(title="")
-    print(title)
-    theater = validation.theater_option()
-    print(theater)
-    room = str(input(colour.purple("Qual foi a sala onde o filme foi testado: "))).strip().lower()
+    while True:
+        menu.split_menu()
+        print("\n")
+        title = validation.name_input(title="")
+        print(title)
+        theater = validation.theater_option(theater_name="")
+        print(theater)
+        room = validation.room_options(theater)
+        print(room)
 
 def option_two():
     pass
