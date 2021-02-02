@@ -21,6 +21,7 @@ def option_one():
         print(theater)
         room = validation.room_options(theater)
         print(room)
+        time_offset = validation.time_offset()
 
 def option_two():
     pass

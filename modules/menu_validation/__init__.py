@@ -34,19 +34,14 @@ def chose_a_option(option=""):
 
 
 def name_input(title):
-    attempts = 0
 
     while True:
-
-        if attempts >= 2:
-            help_funcs.clear_terminal(2)
 
         try:
             title = str(
                 input(colour.purple("Digite o nome do filme: "))).strip().lower()
         except(ValueError, TypeError):
             print(colour.red("Digite um valor correto!"))
-            attempts += 1
 
         except(KeyboardInterrupt):
             print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
@@ -54,7 +49,6 @@ def name_input(title):
 
         if title == "":
             print(colour.red("Digite um valor correto!"))
-            attempts += 1
             continue
 
         if len(title) == 1:
@@ -91,7 +85,6 @@ def theater_option(theater_name=""):
             print(colour.red("Opção indisponível. Escolha a opção 1 ou 2."))
             continue
 
-        print(theaters[chosen_option - 1])
         return theaters[chosen_option - 1]
 
 
@@ -114,3 +107,25 @@ def room_options(theater):
             continue
 
         return room
+
+
+def time_offset():
+        while True:
+
+            try:
+                print(colour.purple("Escolha uma das opções abaixo:"))
+                print((colour.blue("1 - O tempo restante para acabar o filme")))
+                print((colour.blue("2 - Calcular o tempo restante para acabar o filme")))
+                chosen_option = int(input(colour.purple("\nDigite o número da opção:")))
+
+            except(ValueError, TypeError):
+                print(colour.red("Escolha uma das opções disponiveis usando o numero 1 ou 2!"))
+                continue
+            
+            except(KeyboardInterrupt):
+                print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
+                exit()
+
+            if chosen_option not in (1,2):
+                print(colour.red("Opção indisponível. Escolha a opção 1 ou 2."))
+                continue

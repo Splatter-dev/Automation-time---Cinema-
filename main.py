@@ -7,14 +7,14 @@ from modules import help_funcs
 
 
 # begin = timedelta(seconds=15,minutes=12,hours=1)
-# end = timedelta(seconds=11,minutes=2,hours=1)
+# end = timedelta(seconds=11,minutes=2,hours=0.1)
 
 
 # time_offset = begin - end
 # print(time_offset)
 
-# teste = movie.Movie("","polo",4,12)
-# print(teste)
+teste = movie.Movie("","polo",4,12)
+print(teste)
 
 
 menu_option = 5
