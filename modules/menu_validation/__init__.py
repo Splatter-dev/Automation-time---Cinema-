@@ -129,3 +129,23 @@ def time_offset():
             if chosen_option not in (1,2):
                 print(colour.red("Opção indisponível. Escolha a opção 1 ou 2."))
                 continue
+
+            if chosen_option == 1:
+                end_time = evaluate_time(end_time="")
+
+
+
+def evaluate_time(end_time):
+    while True:
+        try:
+            print(colour.blue("Digite o tempo restante do filme, exemplo: 00:05:02\n-> "))
+            time = str(input(colour.blue("Digite: ")))
+            print(time)
+
+        except(ValueError, TypeError):
+            print(colour.red("Escolha uma das opções disponiveis usando o numero 1 ou 2!"))
+            continue
+        
+        except(KeyboardInterrupt):
+            print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
+            exit()
