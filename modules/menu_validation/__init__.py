@@ -131,6 +131,8 @@ def time_offset():
                 continue
 
             if chosen_option == 1:
+                print(colour.blue("Digite o tempo restante do filme, exemplo: 00:05:02\n-> "))
+                print((colour.blue("Digite: ")),end="")
                 end_time = evaluate_time(end_time="")
 
 
@@ -138,14 +140,23 @@ def time_offset():
 def evaluate_time(end_time):
     while True:
         try:
-            print(colour.blue("Digite o tempo restante do filme, exemplo: 00:05:02\n-> "))
-            time = str(input(colour.blue("Digite: ")))
+            
+            time = ""
             print(time)
 
+            """ irei criar uma função que ira formatar hora, e outra para minutos e segundos."""
+            
         except(ValueError, TypeError):
-            print(colour.red("Escolha uma das opções disponiveis usando o numero 1 ou 2!"))
+            print(colour.red("Erro!"))
             continue
         
         except(KeyboardInterrupt):
             print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
             exit()
+
+def hour():
+    pass
+
+
+def minutes_and_seconds():
+    pass
