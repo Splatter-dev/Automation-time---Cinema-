@@ -92,7 +92,7 @@ def room_options(theater):
     theater_rooms = (1,2,3,4) if theater.lower() == "jarágua" else (1,2,3,4,5)
     while True:
         try:
-            room = int(input(colour.blue("Digite o número da sala em que o filme foi testado: ")))
+            room = int(input(colour.purple("Digite o número da sala em que o filme foi testado: ")))
             
         except(ValueError, TypeError):
             print(colour.red("Digite o número da sala!"))
@@ -116,7 +116,7 @@ def time_offset():
                 print(colour.purple("Escolha uma das opções abaixo:"))
                 print((colour.blue("1 - O tempo restante para acabar o filme")))
                 print((colour.blue("2 - Calcular o tempo restante para acabar o filme")))
-                chosen_option = int(input(colour.purple("\nDigite o número da opção:")))
+                chosen_option = int(input(colour.purple("\nDigite o número da opção: ")))
 
             except(ValueError, TypeError):
                 print(colour.red("Escolha uma das opções disponiveis usando o numero 1 ou 2!"))
@@ -131,32 +131,17 @@ def time_offset():
                 continue
 
             if chosen_option == 1:
-                print(colour.blue("Digite o tempo restante do filme.\n"))
-                
+                menu.split_menu()
+                print(colour.purple("Digite o tempo restante do filme.\n"))
                 end_time = evaluate_time(end_time="")
             return(end_time)
 
 
 def evaluate_time(end_time):
-    # while True:
-    #     try:
     print("passou aqui")
     hour = verification_hour(hour_to_verify="")
-    # print(f"hora {hour}")
     minutes = verification_minutes_or_seconds(minutes_or_seconds_to_verify="",msg="Minutos: ")
-    # print(f"minutes {minutes}")
     seconds = verification_minutes_or_seconds(minutes_or_seconds_to_verify="", msg="Segundos: ")
-    # print(f"seconds {seconds}")
-    # print(f"{hour}:{minutes}:{seconds}")
-    """ irei criar uma função que ira formatar hora, e outra para minutos e segundos."""
-            
-        # except(ValueError, TypeError):
-        #     print(colour.red("Erro!"))
-        #     continue
-        
-        # except(KeyboardInterrupt):
-        #     print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
-        #     exit()
 
     return (hour, minutes, seconds)
 

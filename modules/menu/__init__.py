@@ -17,3 +17,21 @@ def main_menu():
 
 def split_menu():
     print("-"*60)
+
+
+def movie_menu():
+    split_menu()
+    print("FILME".center(60))
+    split_menu()
+
+def theater_and_room_menu():
+    split_menu()
+    print("COMPLEXO E SALA".center(60))
+    split_menu()
+
+
+def time_calc_menu():
+    split_menu()
+    print("TEMPO RESTANTE OU CALCULO".center(60))
+    split_menu()
+
