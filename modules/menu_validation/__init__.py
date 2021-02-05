@@ -134,35 +134,37 @@ def time_offset():
                 print(colour.blue("Digite o tempo restante do filme.\n"))
                 
                 end_time = evaluate_time(end_time="")
-
+            return(end_time)
 
 
 def evaluate_time(end_time):
-    while True:
-        try:
-            print("passou aqui")
-            hour = verification_hour(hour_to_verify="")
-            print(f"hora {hour}")
-            minutes = verification_minutes_or_seconds(minutes_or_seconds_to_verify="")
-            print(f"minutes {minutes}")
-            seconds = verification_minutes_or_seconds(minutes_or_seconds_to_verify="")
-            print(f"seconds {seconds}")
-            print(f"{hour}:{minutes}:{seconds}")
-            """ irei criar uma função que ira formatar hora, e outra para minutos e segundos."""
+    # while True:
+    #     try:
+    print("passou aqui")
+    hour = verification_hour(hour_to_verify="")
+    # print(f"hora {hour}")
+    minutes = verification_minutes_or_seconds(minutes_or_seconds_to_verify="",msg="Minutos: ")
+    # print(f"minutes {minutes}")
+    seconds = verification_minutes_or_seconds(minutes_or_seconds_to_verify="", msg="Segundos: ")
+    # print(f"seconds {seconds}")
+    # print(f"{hour}:{minutes}:{seconds}")
+    """ irei criar uma função que ira formatar hora, e outra para minutos e segundos."""
             
-        except(ValueError, TypeError):
-            print(colour.red("Erro!"))
-            continue
+        # except(ValueError, TypeError):
+        #     print(colour.red("Erro!"))
+        #     continue
         
-        except(KeyboardInterrupt):
-            print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
-            exit()
+        # except(KeyboardInterrupt):
+        #     print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
+        #     exit()
+
+    return (hour, minutes, seconds)
 
 
-def verification_hour(hour_to_verify=""):
+def verification_hour(hour_to_verify="",msg=""):
     while True:
         try:
-            hour =  str(input(colour.yellow('Hora (digite sem os dois pontos ":"): '))).strip()
+            hour =  str(input(colour.yellow('Hora: '))).strip()
 
         except(ValueError, TypeError):
             print(colour.red("Digite um valor correto! Exemplo: 01 \n"))
@@ -180,10 +182,10 @@ def verification_hour(hour_to_verify=""):
         
 
 
-def verification_minutes_or_seconds(minutes_or_seconds_to_verify=""):
+def verification_minutes_or_seconds(minutes_or_seconds_to_verify="",msg=""):
     while True:
         try:
-            minutes_or_seconds =  str(input(colour.yellow('Minutos (digite sem os dois pontos ":"): '))).strip()
+            minutes_or_seconds =  str(input(colour.yellow(f'{msg}'))).strip()
 
         except(ValueError, TypeError):
             print(colour.red("Digite um valor correto! Exemplo: 09 ou 10 \n"))
