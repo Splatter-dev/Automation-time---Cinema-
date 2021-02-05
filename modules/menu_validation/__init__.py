@@ -131,8 +131,8 @@ def time_offset():
                 continue
 
             if chosen_option == 1:
-                print(colour.blue("Digite o tempo restante do filme, exemplo: 00:05:02\n-> "))
-                print((colour.blue("Digite: ")),end="")
+                print(colour.blue("Digite o tempo restante do filme.\n"))
+                
                 end_time = evaluate_time(end_time="")
 
 
@@ -140,10 +140,14 @@ def time_offset():
 def evaluate_time(end_time):
     while True:
         try:
-            
-            time = ""
-            print(time)
-
+            print("passou aqui")
+            hour = verification_hour(hour_to_verify="")
+            print(f"hora {hour}")
+            minutes = verification_minutes_or_seconds(minutes_or_seconds_to_verify="")
+            print(f"minutes {minutes}")
+            seconds = verification_minutes_or_seconds(minutes_or_seconds_to_verify="")
+            print(f"seconds {seconds}")
+            print(f"{hour}:{minutes}:{seconds}")
             """ irei criar uma função que ira formatar hora, e outra para minutos e segundos."""
             
         except(ValueError, TypeError):
@@ -154,9 +158,45 @@ def evaluate_time(end_time):
             print(colour.red("\nPrograma interrompido pelo usuario. Volte sempre :)"))
             exit()
 
-def hour():
-    pass
+
+def verification_hour(hour_to_verify=""):
+    while True:
+        try:
+            hour =  str(input(colour.yellow('Hora (digite sem os dois pontos ":"): '))).strip()
+
+        except(ValueError, TypeError):
+            print(colour.red("Digite um valor correto! Exemplo: 01 \n"))
+            continue
+
+        if not hour.isnumeric():
+            print(colour.red("Digite um valor correto! Exemplo: 01"))
+            continue
+
+        if len(hour) > 2:
+            print(colour.red("Digite um valor correto! Exemplo: 01"))
+            continue
+        
+        return hour[-1]
+        
 
 
-def minutes_and_seconds():
-    pass
+def verification_minutes_or_seconds(minutes_or_seconds_to_verify=""):
+    while True:
+        try:
+            minutes_or_seconds =  str(input(colour.yellow('Minutos (digite sem os dois pontos ":"): '))).strip()
+
+        except(ValueError, TypeError):
+            print(colour.red("Digite um valor correto! Exemplo: 09 ou 10 \n"))
+            continue
+
+        if not minutes_or_seconds.isnumeric():
+            print(colour.red("Digite um valor correto! Exemplo: 09 ou 10"))
+            continue
+
+        if len(minutes_or_seconds) > 2:
+            print(colour.red("Digite um valor correto! Exemplo: 09 ou 10"))
+            continue
+        
+        minutes_or_seconds = minutes_or_seconds[1] if minutes_or_seconds[0] == "0" else minutes_or_seconds
+
+        return minutes_or_seconds
