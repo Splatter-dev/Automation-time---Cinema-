@@ -71,7 +71,7 @@ def theater_option(theater_name=""):
         try:
             print(colour.purple("Escolha um dos complexos abaixo:"))
             print((colour.blue("1 - Polo\n2 - Jarágua")))
-            chosen_option = int(input(colour.purple("\nDigite o número da opção:")))
+            chosen_option = int(input(colour.purple("\nDigite o número da opção: ")))
 
         except(ValueError, TypeError):
             print(colour.red("Escolha uma das opções disponiveis usando o numero 1 ou 2!"))
@@ -133,11 +133,28 @@ def time_offset():
             if chosen_option == 1:
                 menu.split_menu()
                 print(colour.purple("Digite o tempo restante do filme.\n"))
-                end_time = evaluate_time(end_time="")
-            return(end_time)
+                remaining_time = evaluate_time(end_time="")
+
+            if chosen_option == 2:
+                menu.split_menu()
+
+                print(colour.purple("Digite o tempo total da playlist."))
+                playlist_duration = evaluate_time(time="")
+                
+
+                print(colour.purple("\nDigite o tempo decorrido da playlist."))
+                playlit_elapsed_time = evaluate_time(time="") 
+
+                print(playlist_duration)
+                print(playlit_elapsed_time)
+
+                remaining_time = calc_remaining_time(playlist_duration, playlit_elapsed_time)
+                
+
+            return(remaining_time)
 
 
-def evaluate_time(end_time):
+def evaluate_time(time):
     print("passou aqui")
     hour = verification_hour(hour_to_verify="")
     minutes = verification_minutes_or_seconds(minutes_or_seconds_to_verify="",msg="Minutos: ")
@@ -163,7 +180,7 @@ def verification_hour(hour_to_verify="",msg=""):
             print(colour.red("Digite um valor correto! Exemplo: 01"))
             continue
         
-        return hour[-1]
+        return int(hour[-1])
         
 
 
@@ -186,4 +203,12 @@ def verification_minutes_or_seconds(minutes_or_seconds_to_verify="",msg=""):
         
         minutes_or_seconds = minutes_or_seconds[1] if minutes_or_seconds[0] == "0" else minutes_or_seconds
 
-        return minutes_or_seconds
+        return int(minutes_or_seconds)
+
+
+def calc_remaining_time(playlist_duration, playlit_elapsed_time):
+
+    h_duration , m_duration, s_duration = playlist_duration
+
+
+    h_elapsed, m_elapsed, s_elapsed = playlit_elapsed_time

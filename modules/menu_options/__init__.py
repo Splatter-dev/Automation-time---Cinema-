@@ -16,15 +16,15 @@ def option_one():
         # menu.split_menu()
         menu.movie_menu()
         title = validation.name_input(title="")
-        print(title)
+
         menu.theater_and_room_menu()
         theater = validation.theater_option(theater_name="")
-        print(theater)
         room = validation.room_options(theater)
-        print(room)
+
         menu.time_calc_menu()
         time_offset = validation.time_offset()
         print(time_offset)
+
         menu.split_menu()
         exit()
 
