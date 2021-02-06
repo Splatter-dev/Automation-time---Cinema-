@@ -2,6 +2,7 @@ import modules.colours as colour
 import modules.menu_validation as validation
 import modules.menu as menu
 from time import sleep
+from modules.movie import Movie
 
 
 def options(option_selected):
@@ -13,7 +14,6 @@ def options(option_selected):
 
 def option_one():
     while True:
-        # menu.split_menu()
         menu.movie_menu()
         title = validation.name_input(title="")
 
@@ -23,7 +23,10 @@ def option_one():
 
         menu.time_calc_menu()
         time_offset = validation.time_offset()
-        print(time_offset)
+
+        movie = Movie(title,theater,room,time_offset)
+
+        print(movie)
 
         menu.split_menu()
         exit()

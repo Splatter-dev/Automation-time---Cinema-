@@ -40,7 +40,7 @@ def name_input(title):
 
         try:
             title = str(
-                input(colour.purple("Digite o nome do filme: "))).strip().lower()
+                input(colour.purple("Digite o nome do filme: "))).strip()
         except(ValueError, TypeError):
             print(colour.red("Digite um valor correto!"))
 
@@ -53,7 +53,7 @@ def name_input(title):
             continue
 
         if len(title) == 1:
-            option = str(input(colour.purple("Você tem certeza que o nome é esse? [S/N] "))).strip().lower()
+            option = str(input(colour.purple("Você tem certeza que o nome é esse? [S/N] "))).strip()
 
             if option == "s":
                 return title
@@ -134,7 +134,8 @@ def time_offset():
             if chosen_option == 1:
                 menu.split_menu()
                 print(colour.purple("Digite o tempo restante do filme.\n"))
-                remaining_time = evaluate_time(end_time="")
+                evaluated_time = evaluate_time(time="")
+                remaining_time = convert_to_time_delta(evaluated_time)
 
             if chosen_option == 2:
                 menu.split_menu()
@@ -146,17 +147,12 @@ def time_offset():
                 print(colour.purple("\nDigite o tempo decorrido da playlist."))
                 playlit_elapsed_time = evaluate_time(time="") 
 
-                print(playlist_duration)
-                print(playlit_elapsed_time)
-
                 remaining_time = calc_remaining_time(playlist_duration, playlit_elapsed_time)
-                print(remaining_time)
 
             return(remaining_time)
 
 
 def evaluate_time(time):
-    print("passou aqui")
     hour = verification_hour(hour_to_verify="")
     minutes = verification_minutes_or_seconds(minutes_or_seconds_to_verify="",msg="Minutos: ")
     seconds = verification_minutes_or_seconds(minutes_or_seconds_to_verify="", msg="Segundos: ")
@@ -207,25 +203,27 @@ def verification_minutes_or_seconds(minutes_or_seconds_to_verify="",msg=""):
         return int(minutes_or_seconds)
 
 
+def convert_to_time_delta(evaluated_time):
+    
+    h, m, s = evaluated_time
+
+    remaining_time = timedelta(hours=h, minutes=m, seconds=s)
+
+    return str(remaining_time)
+
+
+
+
 def calc_remaining_time(playlist_duration, playlit_elapsed_time):
 
     h_duration , m_duration, s_duration = playlist_duration
 
-
     h_elapsed, m_elapsed, s_elapsed = playlit_elapsed_time
-
 
     delta_playlist_duration = timedelta(hours=h_duration,minutes=m_duration,seconds=s_duration)
 
-
     delta_playlist_elapsed_time = timedelta(hours=h_elapsed,minutes=m_elapsed,seconds=s_elapsed)
 
-
-    print(delta_playlist_duration, delta_playlist_elapsed_time)
-
-
     remaining_time = delta_playlist_duration - delta_playlist_elapsed_time
-
-    print(remaining_time)
 
     return str(remaining_time)
