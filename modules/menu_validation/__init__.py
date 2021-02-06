@@ -2,6 +2,7 @@ import modules.colours as colour
 from modules import menu
 from modules import help_funcs
 from time import sleep
+from datetime import timedelta
 
 
 def chose_a_option(option=""):
@@ -149,7 +150,7 @@ def time_offset():
                 print(playlit_elapsed_time)
 
                 remaining_time = calc_remaining_time(playlist_duration, playlit_elapsed_time)
-                
+                print(remaining_time)
 
             return(remaining_time)
 
@@ -212,3 +213,19 @@ def calc_remaining_time(playlist_duration, playlit_elapsed_time):
 
 
     h_elapsed, m_elapsed, s_elapsed = playlit_elapsed_time
+
+
+    delta_playlist_duration = timedelta(hours=h_duration,minutes=m_duration,seconds=s_duration)
+
+
+    delta_playlist_elapsed_time = timedelta(hours=h_elapsed,minutes=m_elapsed,seconds=s_elapsed)
+
+
+    print(delta_playlist_duration, delta_playlist_elapsed_time)
+
+
+    remaining_time = delta_playlist_duration - delta_playlist_elapsed_time
+
+    print(remaining_time)
+
+    return str(remaining_time)
