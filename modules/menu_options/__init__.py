@@ -3,7 +3,7 @@ import modules.menu_validation as validation
 import modules.menu as menu
 from time import sleep
 from modules.movie import Movie
-from db import save_movie
+
 
 
 def options(option_selected):
@@ -25,10 +25,10 @@ def option_one():
         menu.time_calc_menu()
         time_offset = validation.time_offset()
 
-        save_movie.grava_no_banco(title,theater,room,time_offset)
-        # movie = Movie(title,theater,room,time_offset)
-
-        # print(movie)
+        # save_movie.save_movie_doc(title,theater,room,time_offset)
+        movie = Movie(title,theater,room,time_offset)
+        # movie.db_movie_save()
+        print(movie)
 
         menu.split_menu()
         exit()

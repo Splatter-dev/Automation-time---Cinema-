@@ -65,7 +65,7 @@ def name_input(title):
 
 
 def theater_option(theater_name=""):
-    theaters = ("Polo", "Jarágua")
+    theaters = ("Polo", "Jaraguá")
 
     while True:
 

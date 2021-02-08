@@ -1,10 +1,13 @@
+from db import db_connection, save_movie_doc
+
+
 class Movie:
     def __init__(self, title, theater, room, time_offset=''):
         self._title = title
         self._theater = theater
         self._room = room
         self._time_offset = time_offset
-
+        self.db_movie_save()
 
     # def teste(self):
     #     teste = str(input("Teste: "))
@@ -75,3 +78,9 @@ class Movie:
         print('-'*85)
         print(f'{"Titulo":<15}{"Complexo":^45}{"Sala"}{"Time offset":>20}')
         print('-'*85)
+
+
+    def db_movie_save(self):
+        db = db_connection()
+        
+        save_movie_doc(self.title, self.theater,self.room,self.time_offset,db)
