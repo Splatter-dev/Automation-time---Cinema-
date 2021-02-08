@@ -42,9 +42,4 @@ def save_movie_doc(title, theater, room, time, collection):
     collection.insert_one(post)
 
 
-# title = "oi"
-# theater = "polo"
-# room = "1"
-# time = "00:00:00"
 
-# grava_no_banco(title, theater, room, time)
