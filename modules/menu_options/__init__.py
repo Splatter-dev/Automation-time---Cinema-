@@ -3,6 +3,7 @@ import modules.menu_validation as validation
 import modules.menu as menu
 from time import sleep
 from modules.movie import Movie
+from db import db_connection
 
 
 

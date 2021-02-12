@@ -42,4 +42,10 @@ def save_movie_doc(title, theater, room, time, collection):
     collection.insert_one(post)
 
 
+# def db_documents():
+#     documents = db_connection()
+#     for dic in documents.find({}):
+#         return dic["name"], dic["theater"] ,dic["room"] ,dic["time"]
+
+
 
