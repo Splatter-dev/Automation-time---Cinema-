@@ -14,24 +14,31 @@ def main_menu():
     split_menu()
 
 
-
-def split_menu():
-    print("-"*60)
+def split_menu(n=63):
+    print("-" * n)
 
 
 def movie_menu():
     split_menu()
-    print("FILME".center(60))
+    print("FILME".center(63))
     split_menu()
+
 
 def theater_and_room_menu():
     split_menu()
-    print("COMPLEXO E SALA".center(60))
+    print("COMPLEXO E SALA".center(63))
     split_menu()
 
 
 def time_calc_menu():
     split_menu()
-    print("TEMPO RESTANTE OU CALCULO".center(60))
+    print("TEMPO RESTANTE OU CALCULO".center(63))
     split_menu()
 
+
+def movies_registred():
+    split_menu(63)
+    print("FILMES CADASTRADOS".center(63))
+    split_menu(63)
+    print(f'{"Titulo":<28}{"Complexo"}{"Sala":>9}{"Time offset":^25}')
+    split_menu(63)

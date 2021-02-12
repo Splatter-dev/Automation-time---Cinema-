@@ -136,4 +136,9 @@ class MovieFromDb:
         # len_title_rest = 22 - len(self._title)
         # title_splited = self.title[:19] + '...' if len(self._title) > 19 else self.title + " " * len_title_rest
 
-        return f'{self.title}{self.theater:^30}{self.room:>10}{self.time_offset:>18}'
+        # return f'{self.title}{self.theater:^30}{self.room:>10}{self.time_offset:>18}'
+        title_splited = ''
+        len_title_rest = 22 - len(self._title)
+        title_splited = self.title[:19] + '...' if len(self._title) > 19 else self.title + " " * len_title_rest
+
+        return f'{title_splited}{self.theater:^20}{self.room:<10}{self.time_offset:^12}'

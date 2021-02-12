@@ -2,7 +2,7 @@ import modules.colours as colour
 import modules.menu_validation as validation
 import modules.menu as menu
 from time import sleep
-from modules.movie import Movie
+from modules.movie import Movie, MovieFromDb
 from db import db_connection
 
 
@@ -10,6 +10,8 @@ from db import db_connection
 def options(option_selected):
     if option_selected is 1:
         option_one()
+    if option_selected is 2:
+        option_two()
     if option_selected is 4:
         option_four()
 
@@ -35,7 +37,13 @@ def option_one():
         exit()
 
 def option_two():
-    pass
+    menu.movies_registred()
+    documents = db_connection()
+    for dic in documents.find({}):
+        movie = MovieFromDb(dic["name"], dic["theater"] ,dic["room"] ,dic["time"])
+    
+        print(movie)
+    exit()
 
 
 def option_three():
