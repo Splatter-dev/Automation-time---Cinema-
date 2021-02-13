@@ -17,7 +17,9 @@ def options(option_selected):
 
 
 def option_one():
+
     while True:
+        
         menu.movie_menu()
         title = validation.name_input(title="")
 
@@ -28,21 +30,24 @@ def option_one():
         menu.time_calc_menu()
         time_offset = validation.time_offset()
 
-        # save_movie.save_movie_doc(title,theater,room,time_offset)
         movie = Movie(title,theater,room,time_offset)
-        # movie.db_movie_save()
-        print(movie)
 
         menu.split_menu()
-        exit()
+        
+        sleep(2)
+
+        break
 
 def option_two():
-    menu.movies_registred()
+
     documents = db_connection()
+
+    menu.movies_registred()
+
     for dic in documents.find({}):
         movie = MovieFromDb(dic["name"], dic["theater"] ,dic["room"] ,dic["time"])
-    
         print(movie)
+    
     exit()
 
 
