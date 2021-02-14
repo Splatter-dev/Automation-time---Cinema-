@@ -72,13 +72,6 @@ class Movie:
 
         return f'{title_splited}{self.theater:^30}{self.room:>10}{self.time_offset:>18}'
 
-    def layout(self):
-        print('-'*85)
-        print("FILMES CADASTRADOS".center(75))
-        print('-'*85)
-        print(f'{"Titulo":<15}{"Complexo":^45}{"Sala"}{"Time offset":>20}')
-        print('-'*85)
-
 
     def db_movie_save(self):
         db = db_connection()
@@ -130,13 +123,7 @@ class MovieFromDb:
 
 
     def __str__(self):
-        # self.layout()
 
-        # title_splited = ''
-        # len_title_rest = 22 - len(self._title)
-        # title_splited = self.title[:19] + '...' if len(self._title) > 19 else self.title + " " * len_title_rest
-
-        # return f'{self.title}{self.theater:^30}{self.room:>10}{self.time_offset:>18}'
         title_splited = ''
         len_title_rest = 22 - len(self._title)
         title_splited = self.title[:19] + '...' if len(self._title) > 19 else self.title + " " * len_title_rest
