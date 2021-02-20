@@ -12,6 +12,8 @@ def options(option_selected):
         option_one()
     if option_selected is 2:
         option_two()
+    if option_selected is 3:
+        option_three()
     if option_selected is 4:
         option_four()
 
@@ -52,8 +54,19 @@ def option_two():
 
 
 def option_three():
-    pass
 
+    documents = db_connection()
+
+    title = validation.name_input(title="")
+
+    find_document = documents.find_one({"name":f"{title}"},projection={"_id": False})
+
+    movie = MovieFromDb(find_document["name"], find_document["theater"] ,find_document["room"] ,find_document["time"])
+
+    menu.movies_registred()
+    print(movie)
+
+    exit()
 
 def option_four():
     print(colour.green(f"\nSaindo do programa...\nVolte sempre :)"))
